@@ -1,0 +1,1637 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}[hidden]{display:none!important}</style>
+<title>Comidas del mundo | Menú de 7 países</title>
+<meta name="description" content="Explorá el menú de Comidas del mundo: sabores de México, Italia, Brasil, Rusia, Estados Unidos, China y Costa Rica. Aceptamos SINPE Móvil y efectivo.">
+<meta property="og:title" content="Comidas del mundo | Menú de 7 países">
+<meta property="og:description" content="Explorá el menú de Comidas del mundo: sabores de México, Italia, Brasil, Rusia, Estados Unidos, China y Costa Rica. Aceptamos SINPE Móvil y efectivo.">
+<meta property="og:locale" content="es_CR">
+<link rel="icon" type="image/png" href="img/isotipo-rojo-64.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+<style>
+/* Concepto: un pasaporte gastronómico. Fondo blanco hueso, el rojo del sello solo
+   en acciones y detalles; la comida ocupa casi todo el espacio. Una sola columna en
+   teléfono, dos en tableta y tres en escritorio, con un ancho máximo de 1240 px.
+   Diseño de tema claro único, elegido a propósito por la identidad de la marca. */
+:root {
+  --rojo: #CC1A1A;
+  --rojo-hover: #AD1515;
+  --rojo-suave: #FBEAE8;
+  --tinta: #1A1A1A;
+  --tinta-2: #4E4743;
+  --hueso: #FAF7F2;
+  --mesa: #F1E8DC;
+  --linea: #E5E5E5;
+  --borde-control: #8A817A;
+  --blanco: #FFFFFF;
+
+  --f-titulo: "Poppins", "Segoe UI", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --f-texto: "Poppins", "Segoe UI", "Helvetica Neue", Arial, system-ui, sans-serif;
+
+  --radio-tarjeta: 16px;
+  --radio-panel: 24px;
+  --sombra: 0 1px 2px rgba(26, 26, 26, .05), 0 10px 24px -14px rgba(26, 26, 26, .22);
+  --sombra-alta: 0 2px 4px rgba(26, 26, 26, .06), 0 18px 36px -18px rgba(26, 26, 26, .30);
+
+  --header-h: 64px;
+  --chips-h: 64px;
+  --ancho: 1240px;
+  --gutter: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-d: max(16px, env(safe-area-inset-right, 0px));
+
+  color-scheme: light;
+}
+@media (min-width: 768px) {
+  :root {
+    --gutter: max(32px, env(safe-area-inset-left, 0px));
+    --gutter-d: max(32px, env(safe-area-inset-right, 0px));
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; background: var(--hueso); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+html.bloqueado { overflow: hidden; }
+body {
+  margin: 0;
+  background: var(--hueso);
+  color: var(--tinta);
+  font-family: var(--f-texto);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 30;
+  background: var(--hueso);
+}
+img { max-width: 100%; display: block; }
+h1, h2, h3, h4 { font-family: var(--f-titulo); font-weight: 600; margin: 0; text-wrap: balance; line-height: 1.15; }
+p { margin: 0; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--rojo); outline-offset: 3px; border-radius: 6px; }
+
+.sr {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho);
+  margin-inline: auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter-d);
+}
+.icono { width: 20px; height: 20px; flex: none; }
+
+/* ---------- Botones ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 48px; padding: 0 24px;
+  border-radius: 999px; border: 2px solid transparent;
+  font-family: var(--f-titulo); font-weight: 600; font-size: 16px; line-height: 1;
+  text-decoration: none; cursor: pointer;
+  transition: background-color .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+}
+.btn:active { transform: scale(.98); }
+.btn-primario { background: var(--rojo); color: var(--blanco); }
+.btn-primario:hover { background: var(--rojo-hover); }
+.btn-secundario { background: var(--blanco); color: var(--tinta); border-color: var(--tinta); }
+.btn-secundario:hover { background: var(--tinta); color: var(--blanco); }
+.btn-chico { min-height: 44px; padding: 0 16px; font-size: 15px; }
+.enlace {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 44px;
+  font-weight: 600; text-decoration: underline; text-decoration-thickness: 2px;
+  text-underline-offset: 5px; text-decoration-color: var(--rojo);
+}
+.enlace:hover { color: var(--rojo); }
+
+/* ---------- Salto ---------- */
+.saltar {
+  position: absolute; left: var(--gutter); top: -100px; z-index: 50;
+  background: var(--tinta); color: var(--blanco); padding: 12px 16px; border-radius: 10px;
+  font-weight: 600; text-decoration: none;
+}
+.saltar:focus { top: calc(env(safe-area-inset-top, 0px) + 8px); }
+
+/* ---------- Cabecera ---------- */
+.cabecera {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: var(--hueso);
+  border-bottom: 1px solid var(--linea);
+}
+.cabecera-fila {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  min-height: 64px;
+}
+.marca {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 44px;
+  text-decoration: none; font-family: var(--f-titulo); font-weight: 600; font-size: 17px;
+  letter-spacing: -.01em; white-space: nowrap;
+}
+.marca img { width: 36px; height: 36px; }
+.nav { display: flex; align-items: center; gap: 4px; }
+.nav-enlace {
+  display: none; align-items: center; min-height: 44px; padding: 0 12px;
+  text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 999px;
+}
+.nav-enlace:hover { background: var(--mesa); }
+.btn-favs {
+  position: relative; display: inline-flex; align-items: center; gap: 8px;
+  min-height: 44px; min-width: 44px; padding: 0 10px; justify-content: center;
+  border: 0; background: transparent; border-radius: 999px; cursor: pointer;
+  font-weight: 600; font-size: 15px;
+}
+.btn-favs:hover { background: var(--mesa); }
+.btn-favs .texto { display: none; }
+.contador {
+  min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px;
+  background: var(--rojo); color: var(--blanco);
+  font-size: 12px; line-height: 22px; text-align: center; font-variant-numeric: tabular-nums;
+}
+.btn-favs .contador { position: absolute; top: 0; right: -2px; }
+.cabecera .btn-primario { min-height: 44px; padding: 0 18px; font-size: 15px; }
+@media (min-width: 860px) {
+  .nav { gap: 8px; }
+  .nav-enlace { display: inline-flex; }
+  .btn-favs { padding: 0 14px; }
+  .btn-favs .texto { display: inline; }
+  .btn-favs .contador { position: static; }
+}
+@media (max-width: 479px) {
+  .cabecera .marca { gap: 8px; font-size: 15px; }
+  .cabecera .marca span { white-space: normal; max-width: 5.6em; line-height: 1.1; }
+  .cabecera .marca img { width: 34px; height: 34px; }
+  .cabecera .btn-primario { padding: 0 16px; }
+}
+
+/* ---------- Portada ---------- */
+.portada { padding-block: 24px 40px; }
+.portada-grid { display: grid; gap: 24px; align-items: center; }
+.portada-texto { display: grid; gap: 16px; min-width: 0; }
+.eyebrow {
+  font-family: var(--f-titulo); font-weight: 600; font-size: 13px;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--rojo);
+}
+.portada h1 { font-size: clamp(36px, 9vw, 68px); letter-spacing: -.025em; line-height: 1.04; }
+.portada h1 .rojo { color: var(--rojo); }
+.portada-desc { font-size: 17px; color: var(--tinta-2); max-width: 34em; }
+.portada-acciones { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; }
+.pago-aviso {
+  display: inline-flex; align-items: center; gap: 10px; font-size: 15px; color: var(--tinta-2);
+}
+.pago-aviso .icono { color: var(--rojo); }
+
+.mesa {
+  position: relative; width: 100%; max-width: 100%;
+  aspect-ratio: 2 / 1;
+  background: var(--mesa);
+  border-radius: var(--radio-panel);
+  overflow: hidden;
+  margin: 0;
+}
+.mesa svg.ruta { position: absolute; inset: 0; width: 100%; height: 100%; }
+.plato {
+  --s: 19%;
+  position: absolute;
+  left: var(--x); top: var(--y);
+  width: var(--s); aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--blanco);
+  padding: clamp(3px, 0.9vw, 7px);
+  box-shadow: 0 6px 14px -8px rgba(26, 26, 26, .45);
+}
+.plato img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.plato .codigo {
+  display: none;
+  position: absolute; left: 50%; bottom: -10px; transform: translateX(-50%);
+  background: var(--blanco); color: var(--rojo); border: 1.5px solid var(--rojo);
+  border-radius: 999px; padding: 1px 8px;
+  font-family: var(--f-titulo); font-weight: 600; font-size: 11px; letter-spacing: .12em;
+}
+.p1 { --x: 11%; --y: 31%; }
+.p2 { --x: 24%; --y: 69%; }
+.p3 { --x: 37%; --y: 31%; }
+.p4 { --x: 50%; --y: 69%; }
+.p5 { --x: 63%; --y: 31%; }
+.p6 { --x: 76%; --y: 69%; }
+.p7 { --x: 89%; --y: 31%; }
+.ruta-d { display: none; }
+
+@media (min-width: 900px) {
+  .portada { padding-block: 48px 64px; }
+  .portada-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 48px; }
+  .mesa { aspect-ratio: 1 / 1; }
+  .ruta-m { display: none; }
+  .ruta-d { display: block; }
+  .plato .codigo { display: block; }
+  .p1 { --x: 20%; --y: 20%; --s: 28%; }
+  .p2 { --x: 52%; --y: 16%; --s: 24%; }
+  .p3 { --x: 82%; --y: 24%; --s: 22%; }
+  .p4 { --x: 76%; --y: 54%; --s: 26%; }
+  .p5 { --x: 42%; --y: 48%; --s: 30%; }
+  .p6 { --x: 14%; --y: 62%; --s: 22%; }
+  .p7 { --x: 46%; --y: 82%; --s: 26%; }
+}
+
+/* ---------- Secciones ---------- */
+.seccion { padding-block: 48px; scroll-margin-top: calc(var(--header-h) + 8px); }
+@media (min-width: 900px) { .seccion { padding-block: 64px; } }
+.seccion-titulo { font-size: clamp(28px, 6vw, 42px); letter-spacing: -.02em; }
+.seccion-sub { margin-top: 8px; font-size: 18px; color: var(--tinta-2); }
+
+/* ---------- Menú ---------- */
+#menu { padding-top: 40px; border-top: 1px solid var(--linea); }
+.menu-cabeza { display: grid; gap: 24px; }
+.menu-cabeza-texto { display: grid; gap: 4px; }
+.nota-fotos { font-size: 14px; color: var(--tinta-2); margin-top: 8px; }
+
+.buscador { display: grid; gap: 8px; max-width: 640px; }
+.buscador label { font-family: var(--f-titulo); font-weight: 600; font-size: 15px; }
+.campo { position: relative; }
+.campo .icono-lupa {
+  position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+  color: var(--tinta-2); pointer-events: none;
+}
+.campo input {
+  width: 100%; min-height: 52px;
+  padding: 0 52px 0 48px;
+  border: 1.5px solid var(--borde-control); border-radius: 14px;
+  background: var(--blanco); color: var(--tinta);
+  font: inherit; font-size: 16px;
+  transition: border-color .18s ease, box-shadow .18s ease;
+  -webkit-appearance: none; appearance: none;
+}
+.campo input::placeholder { color: #6E6660; }
+.campo input:focus { outline: none; border-color: var(--rojo); box-shadow: 0 0 0 3px rgba(204, 26, 26, .22); }
+.campo input::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
+.btn-vaciar {
+  position: absolute; right: 4px; top: 50%; transform: translateY(-50%);
+  width: 44px; height: 44px; border: 0; border-radius: 10px; background: transparent;
+  display: inline-flex; align-items: center; justify-content: center; cursor: pointer;
+}
+.btn-vaciar:hover { background: var(--mesa); }
+.ayuda { font-size: 14px; color: var(--tinta-2); }
+
+.chips-barra {
+  position: sticky; top: calc(env(safe-area-inset-top, 0px) + var(--header-h)); z-index: 15;
+  background: var(--hueso);
+  border-bottom: 1px solid var(--linea);
+}
+@media (min-width: 900px) {
+  .chips { flex-wrap: wrap; overflow-x: visible; gap: 6px; }
+  .chips-marco::after { display: none; }
+  .chips .chip { padding: 0 13px; font-size: 14px; gap: 6px; }
+  .chips-marco .chips .divisor { flex: 0 0 100%; width: auto; height: 0; margin: 0; opacity: 0; }
+}
+.chips-pregunta {
+  font-family: var(--f-titulo); font-weight: 600; font-size: 15px; margin-top: 24px;
+}
+.chips-marco { position: relative; }
+.chips-marco::after {
+  content: ""; position: absolute; top: 0; bottom: 0; right: 0; width: 40px;
+  background: linear-gradient(to right, rgba(250, 247, 242, 0), var(--hueso));
+  pointer-events: none; opacity: 0; transition: opacity .18s ease;
+}
+.chips-marco.hay-mas::after { opacity: 1; }
+.chips {
+  position: relative;
+  display: flex; gap: 8px; overflow-x: auto; overscroll-behavior-x: contain;
+  padding: 10px 2px 12px; scrollbar-width: none;
+  scroll-padding-inline: 16px;
+}
+.chips::-webkit-scrollbar { display: none; }
+.chip {
+  flex: none; display: inline-flex; align-items: center; gap: 8px;
+  min-height: 44px; padding: 0 16px;
+  border-radius: 999px; border: 1.5px solid var(--borde-control);
+  background: var(--blanco); color: var(--tinta);
+  font-family: var(--f-titulo); font-weight: 600; font-size: 15px; cursor: pointer;
+  transition: background-color .18s ease, color .18s ease, border-color .18s ease;
+  white-space: nowrap;
+}
+.chip:hover { border-color: var(--tinta); }
+.chip .num {
+  font-size: 13px; font-variant-numeric: tabular-nums; color: var(--tinta-2);
+  min-width: 1.2em; text-align: center;
+}
+.chip[aria-pressed="true"] { background: var(--rojo); border-color: var(--rojo); color: var(--blanco); }
+.chip[aria-pressed="true"] .num { color: var(--blanco); }
+.chip[aria-pressed="true"]::before {
+  content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--blanco);
+}
+.chip .sep { width: 1px; height: 18px; background: var(--linea); }
+.chips .divisor { flex: none; width: 1px; margin: 8px 4px; background: var(--borde-control); opacity: .5; }
+
+.estado {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px;
+  min-height: 44px; margin-top: 16px; font-size: 15px; color: var(--tinta-2);
+}
+.estado strong { color: var(--tinta); font-weight: 600; }
+
+.resultados { display: grid; gap: 48px; margin-top: 16px; scroll-margin-top: calc(var(--header-h) + var(--chips-h) + 8px); }
+.grupo { display: grid; gap: 20px; }
+.grupo-cabeza { display: flex; align-items: center; gap: 14px; }
+.sello-pais {
+  flex: none; width: 52px; height: 52px; border-radius: 50%;
+  border: 2px solid var(--rojo); color: var(--rojo);
+  display: grid; place-items: center; position: relative;
+  font-family: var(--f-titulo); font-weight: 600; font-size: 12px; letter-spacing: .1em;
+  transform: rotate(-8deg);
+}
+.sello-pais::after {
+  content: ""; position: absolute; inset: 4px; border-radius: 50%; border: 1px dashed var(--rojo); opacity: .7;
+}
+.grupo-titulos { display: grid; gap: 2px; min-width: 0; }
+.grupo-titulos h3 { font-size: 24px; letter-spacing: -.01em; }
+.grupo-conteo { font-size: 14px; color: var(--tinta-2); font-variant-numeric: tabular-nums; }
+.grupo-linea { flex: 1; min-width: 24px; border-top: 2px dashed var(--linea); align-self: center; }
+
+.grilla { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
+@media (min-width: 640px) { .grilla { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .grilla { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.tarjeta {
+  display: flex; flex-direction: column;
+  background: var(--blanco);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio-tarjeta);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+  transition: box-shadow .2s ease, transform .2s ease;
+  min-width: 0;
+}
+@media (hover: hover) {
+  .tarjeta.abrible:hover { box-shadow: var(--sombra-alta); transform: translateY(-2px); }
+}
+.foto {
+  position: relative; aspect-ratio: 4 / 3; max-width: 100%; width: 100%;
+  background: var(--mesa); overflow: hidden;
+}
+.tarjeta.abrible .foto { cursor: pointer; }
+.foto img { width: 100%; height: 100%; object-fit: cover; }
+.foto-vacia {
+  position: absolute; inset: 0; display: grid; place-items: center; gap: 8px;
+  background: var(--rojo-suave); color: var(--rojo); text-align: center; padding: 24px;
+  align-content: center;
+}
+.foto-vacia .sello-pais { width: 56px; height: 56px; }
+.foto-vacia .nombre-grande {
+  font-family: var(--f-titulo); font-weight: 600; font-size: 22px; line-height: 1.2; color: var(--rojo);
+  max-width: 14em; text-wrap: balance;
+}
+.foto-vacia svg { width: 96px; height: 96px; }
+.tarjeta-cuerpo { display: flex; flex-direction: column; gap: 8px; padding: 20px 20px 16px; flex: 1; }
+.pais-etiqueta {
+  font-family: var(--f-titulo); font-weight: 600; font-size: 12px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--rojo);
+}
+.tarjeta h4 { font-size: 20px; letter-spacing: -.01em; }
+.tarjeta-desc { color: var(--tinta-2); font-size: 16px; }
+.lista-dulces { margin: 4px 0 0; padding: 0; list-style: none; display: grid; gap: 6px; font-size: 15px; color: var(--tinta-2); }
+.lista-dulces li { display: flex; gap: 10px; align-items: baseline; }
+.lista-dulces strong { color: var(--tinta); font-weight: 600; }
+.tarjeta-acciones {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  margin-top: auto; padding-top: 12px; border-top: 1px solid var(--linea);
+}
+.btn-detalles {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 4px;
+  border: 0; background: transparent; cursor: pointer;
+  font-family: var(--f-titulo); font-weight: 600; font-size: 15px;
+  text-decoration: underline; text-decoration-color: var(--rojo); text-decoration-thickness: 2px; text-underline-offset: 5px;
+}
+.btn-detalles:hover { color: var(--rojo); }
+.btn-fav {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px;
+  border: 1.5px solid var(--borde-control); border-radius: 999px; background: var(--blanco);
+  cursor: pointer; font-family: var(--f-titulo); font-weight: 600; font-size: 14px;
+  transition: background-color .18s ease, border-color .18s ease, color .18s ease;
+}
+.btn-fav:hover { border-color: var(--tinta); }
+.btn-fav .corazon-lleno { display: none; }
+.btn-fav[aria-pressed="true"] { background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo); }
+.btn-fav[aria-pressed="true"] .corazon-lleno { display: block; }
+.btn-fav[aria-pressed="true"] .corazon-vacio { display: none; }
+.btn-fav .t-guardado { display: none; }
+.btn-fav[aria-pressed="true"] .t-guardar { display: none; }
+.btn-fav[aria-pressed="true"] .t-guardado { display: inline; }
+
+.vacio {
+  display: grid; justify-items: start; gap: 12px;
+  padding: 32px 24px; border-radius: var(--radio-tarjeta);
+  background: var(--blanco); border: 1.5px dashed var(--borde-control);
+}
+.vacio h3 { font-size: 22px; }
+.vacio p { color: var(--tinta-2); }
+.vacio-acciones { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+
+/* ---------- Sobre nosotros ---------- */
+.nosotros-grid { display: grid; gap: 32px; align-items: center; }
+.nosotros-texto { display: grid; gap: 16px; max-width: 38em; min-width: 0; }
+.nosotros-texto p { font-size: 17px; color: var(--tinta-2); }
+.pasaporte {
+  background: var(--blanco); border: 1px solid var(--linea); border-radius: var(--radio-panel);
+  padding: 32px 24px; display: grid; justify-items: center; gap: 24px; box-shadow: var(--sombra);
+}
+.pasaporte .sello-grande { width: min(220px, 60%); height: auto; transform: rotate(-6deg); }
+.parada { display: grid; gap: 12px; justify-items: center; width: 100%; }
+.parada-titulo {
+  font-family: var(--f-titulo); font-weight: 600; font-size: 13px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--tinta-2);
+}
+.parada ol {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 4px; align-items: center;
+}
+.parada li { display: inline-flex; align-items: center; gap: 6px; }
+.parada li + li::before { content: ""; width: 8px; border-top: 2px dotted var(--rojo); }
+.parada .cod {
+  display: inline-grid; place-items: center; min-width: 46px; min-height: 30px; padding: 0 6px;
+  border: 1.5px solid var(--rojo); border-radius: 999px; color: var(--rojo);
+  font-family: var(--f-titulo); font-weight: 600; font-size: 12px; letter-spacing: .1em;
+}
+@media (min-width: 900px) {
+  .nosotros-grid { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 64px; }
+}
+
+/* ---------- Pagos ---------- */
+#pagos { padding-top: 0; }
+.pagos-panel {
+  display: grid; gap: 24px; align-items: center;
+  background: var(--mesa); border-radius: var(--radio-panel); padding: 32px 24px;
+}
+.pagos-panel h2 { font-size: clamp(26px, 5vw, 36px); letter-spacing: -.02em; }
+.pagos-panel .seccion-sub { color: var(--tinta); font-size: 18px; }
+.metodos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.metodo {
+  display: grid; justify-items: start; gap: 12px; padding: 20px;
+  background: var(--blanco); border-radius: var(--radio-tarjeta); border: 1px solid var(--linea);
+}
+.metodo .icono-grande {
+  width: 48px; height: 48px; border-radius: 12px; background: var(--rojo-suave); color: var(--rojo);
+  display: grid; place-items: center;
+}
+.metodo .icono-grande svg { width: 26px; height: 26px; }
+.metodo strong { font-family: var(--f-titulo); font-weight: 600; font-size: 17px; }
+@media (min-width: 768px) {
+  .pagos-panel { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding: 48px; gap: 48px; }
+}
+
+/* ---------- Información (solo con datos confirmados) ---------- */
+.info-lista { display: grid; gap: 16px; margin: 24px 0 0; }
+.info-lista div { display: grid; gap: 2px; }
+.info-lista dt { font-weight: 600; }
+.info-lista dd { margin: 0; color: var(--tinta-2); }
+
+/* ---------- Pie ---------- */
+.pie { background: var(--rojo); color: var(--blanco); margin-top: 24px; }
+.pie-grid { display: grid; gap: 24px; padding-block: 40px; }
+.pie .marca img { width: 44px; height: 44px; }
+.pie .marca { font-size: 19px; }
+.pie-lema { font-family: var(--f-titulo); font-weight: 600; font-size: 22px; letter-spacing: -.01em; }
+.pie nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 8px; }
+.pie nav a {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 10px; margin-left: -10px;
+  text-decoration: none; font-weight: 600; border-radius: 999px;
+}
+.pie nav a:hover { background: rgba(255, 255, 255, .14); }
+.pie :focus-visible { outline-color: var(--blanco); }
+.pie-nota { font-size: 14px; opacity: .92; }
+@media (min-width: 768px) {
+  .pie-grid { grid-template-columns: auto 1fr; align-items: start; column-gap: 64px; }
+  .pie nav { justify-self: end; }
+}
+
+/* ---------- Diálogos ---------- */
+dialog {
+  border: 0; padding: 0; color: var(--tinta); background: var(--blanco);
+  width: 100%; max-width: 100%;
+  margin: auto auto 0;
+  max-height: calc(100dvh - env(safe-area-inset-top, 0px) - 16px);
+  border-radius: 20px 20px 0 0;
+  overflow-y: auto; overscroll-behavior: contain;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+dialog::backdrop { background: rgba(26, 26, 26, .55); }
+dialog[open] { animation: subir .22s ease-out; }
+@keyframes subir { from { transform: translateY(24px); opacity: .4; } to { transform: none; opacity: 1; } }
+@media (min-width: 700px) {
+  dialog { margin: auto; max-width: 560px; border-radius: 20px; max-height: calc(100dvh - 48px); }
+  @keyframes subir { from { transform: translateY(12px) scale(.98); opacity: .4; } to { transform: none; opacity: 1; } }
+}
+.dlg-barra {
+  position: sticky; top: 0; z-index: 2; display: flex; justify-content: flex-end; align-items: center; gap: 12px;
+  padding: 10px 10px 0; pointer-events: none;
+}
+.dlg-barra > * { pointer-events: auto; }
+.btn-cerrar {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 14px;
+  border: 0; border-radius: 999px; background: var(--blanco); color: var(--tinta); cursor: pointer;
+  font-family: var(--f-titulo); font-weight: 600; font-size: 15px;
+  box-shadow: 0 2px 10px rgba(26, 26, 26, .18);
+}
+.btn-cerrar:hover { background: var(--hueso); }
+.ficha-foto { margin-top: -54px; aspect-ratio: 4 / 3; max-width: 100%; background: var(--mesa); position: relative; overflow: hidden; }
+.ficha-foto img { width: 100%; height: 100%; object-fit: cover; }
+.ficha-cuerpo { display: grid; gap: 10px; padding: 24px; }
+.ficha-cuerpo h2 { font-size: 28px; letter-spacing: -.02em; }
+.ficha-cuerpo .tarjeta-desc { font-size: 17px; }
+.ficha-acciones { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+.ficha-nota { font-size: 13px; color: var(--tinta-2); margin-top: 4px; }
+
+#favoritos .dlg-barra { justify-content: space-between; padding: 16px 16px 8px 24px; background: var(--blanco); pointer-events: auto; border-bottom: 1px solid var(--linea); }
+#favoritos h2 { font-size: 22px; }
+.favs-cuerpo { padding: 16px 24px 24px; display: grid; gap: 16px; }
+.favs-lista { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.fav-item {
+  display: grid; grid-template-columns: 72px minmax(0, 1fr) auto; gap: 12px; align-items: center;
+  padding: 8px; border: 1px solid var(--linea); border-radius: 14px;
+}
+.fav-mini { width: 72px; aspect-ratio: 4 / 3; border-radius: 10px; overflow: hidden; background: var(--rojo-suave); position: relative; }
+.fav-mini img { width: 100%; height: 100%; object-fit: cover; }
+.fav-mini .mini-cod {
+  position: absolute; inset: 0; display: grid; place-items: center; color: var(--rojo);
+  font-family: var(--f-titulo); font-weight: 600; font-size: 11px; letter-spacing: .1em;
+}
+.fav-nombre { font-weight: 600; line-height: 1.3; }
+.fav-pais { font-size: 13px; color: var(--tinta-2); }
+.btn-quitar {
+  min-height: 44px; padding: 0 12px; border: 1.5px solid var(--borde-control); border-radius: 999px;
+  background: var(--blanco); cursor: pointer; font-weight: 600; font-size: 14px;
+}
+.btn-quitar:hover { border-color: var(--rojo); color: var(--rojo); }
+.favs-vacio { color: var(--tinta-2); font-size: 16px; }
+.favs-nota { font-size: 14px; color: var(--tinta-2); padding: 12px 14px; border-radius: 12px; background: var(--hueso); }
+
+
+/* ---------- Portada animada ---------- */
+.mesa-bloque { display: grid; gap: 12px; min-width: 0; }
+.plato { transition: scale .25s ease, box-shadow .25s ease; }
+.plato.activo { scale: 1.08; box-shadow: 0 0 0 3px var(--rojo), 0 10px 20px -10px rgba(26, 26, 26, .5); z-index: 2; }
+.avion {
+  position: absolute; left: 0; top: 0; z-index: 3; width: clamp(18px, 4.5vw, 30px); height: clamp(18px, 4.5vw, 30px);
+  color: var(--rojo); opacity: 0; pointer-events: none; will-change: transform, opacity;
+  filter: drop-shadow(0 2px 2px rgba(26, 26, 26, .25));
+}
+.avion svg { width: 100%; height: 100%; display: block; }
+.proxima {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  font-family: var(--f-titulo); font-weight: 600; font-size: 14px; color: var(--tinta-2);
+  letter-spacing: .04em;
+}
+.proxima .icono { color: var(--rojo); width: 18px; height: 18px; }
+.proxima strong { color: var(--rojo); text-transform: uppercase; letter-spacing: .12em; display: inline-block; }
+.proxima strong.cambio { animation: cambio-destino .35s ease-out; }
+@keyframes cambio-destino { from { opacity: .2; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .mesa .plato { animation: aterrizar .6s cubic-bezier(.2, .8, .3, 1.25) both; animation-delay: calc(var(--i) * 110ms + 200ms); }
+  .mesa .revelar { stroke-dasharray: 100; stroke-dashoffset: 100; animation: trazar 1.3s ease-out .25s forwards; }
+  .mesa .plato .codigo { animation: sellar .45s cubic-bezier(.2, .8, .3, 1.3) both; animation-delay: calc(var(--i) * 110ms + 650ms); }
+}
+@keyframes aterrizar {
+  from { transform: translate(-50%, -80%) scale(.8); opacity: .3; }
+  65%  { transform: translate(-50%, -46%) scale(1.03); opacity: 1; }
+  to   { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+@keyframes trazar { to { stroke-dashoffset: 0; } }
+@keyframes sellar {
+  from { transform: translateX(-50%) scale(1.8) rotate(-14deg); opacity: .15; }
+  70%  { transform: translateX(-50%) scale(.94) rotate(-4deg); opacity: 1; }
+  to   { transform: translateX(-50%) scale(1) rotate(0); opacity: 1; }
+}
+
+/* ---------- Menú animado ---------- */
+.menu-cabeza-fila { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 24px; }
+.sorpresa-llamado { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.sorpresa-llamado p { font-size: 15px; color: var(--tinta-2); }
+.sello-pais.sellado { animation: sellar-grupo .5s cubic-bezier(.2, .8, .3, 1.3); }
+@keyframes sellar-grupo {
+  from { transform: rotate(-26deg) scale(1.7); opacity: .15; }
+  70%  { transform: rotate(-6deg) scale(.94); opacity: 1; }
+  to   { transform: rotate(-8deg) scale(1); opacity: 1; }
+}
+.tarjeta.entrando > * { animation: entrar .34s ease-out both; animation-delay: var(--d, 0ms); }
+@keyframes entrar { from { opacity: .15; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.foto img { transition: transform .4s ease; }
+@media (hover: hover) { .tarjeta.abrible:hover .foto img { transform: scale(1.05); } }
+.tarjeta.resaltada { animation: resaltar 1.6s ease-out; }
+@keyframes resaltar { 0%, 40% { box-shadow: 0 0 0 4px var(--rojo), var(--sombra-alta); } to { box-shadow: var(--sombra); } }
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .grilla > .tarjeta { animation: subir-vista linear both; animation-timeline: view(); animation-range: entry 0% entry 30%; }
+    @keyframes subir-vista { from { opacity: .3; translate: 0 32px; } to { opacity: 1; translate: 0 0; } }
+  }
+}
+.btn-fav.latido svg, .btn-favs.latido svg { animation: latido .45s ease-out; }
+@keyframes latido { 0% { transform: scale(1); } 35% { transform: scale(1.45); } 60% { transform: scale(.9); } 100% { transform: scale(1); } }
+.contador.salto { animation: salto .4s ease-out; }
+@keyframes salto { 0% { transform: scale(1); } 40% { transform: scale(1.4); } 100% { transform: scale(1); } }
+
+/* ---------- Elegí por mí ---------- */
+.dlg-barra.con-titulo { justify-content: space-between; padding: 16px 16px 8px 24px; background: var(--blanco); pointer-events: auto; border-bottom: 1px solid var(--linea); }
+.dlg-barra.con-titulo h2 { font-size: 22px; }
+.sorpresa-cuerpo { display: grid; gap: 16px; padding: 20px 24px 24px; }
+.boleto {
+  position: relative; border: 1.5px dashed var(--borde-control); border-radius: var(--radio-tarjeta);
+  overflow: hidden; background: var(--hueso);
+}
+.boleto-foto { aspect-ratio: 4 / 3; max-width: 100%; background: var(--mesa); position: relative; overflow: hidden; }
+.boleto-foto img { width: 100%; height: 100%; object-fit: cover; }
+.boleto.girando .boleto-foto img { filter: blur(1.5px) saturate(1.1); }
+.boleto-info { display: flex; gap: 16px; align-items: flex-start; padding: 16px; border-top: 1.5px dashed var(--borde-control); }
+.boleto-texto { display: grid; gap: 4px; min-width: 0; }
+.boleto-nombre { font-family: var(--f-titulo); font-weight: 600; font-size: 24px; line-height: 1.2; letter-spacing: -.01em; }
+.sello-boleto { width: 60px; height: 60px; font-size: 13px; background: var(--blanco); }
+.sello-boleto.sellado { animation: sellar-grupo .5s cubic-bezier(.2, .8, .3, 1.3); }
+.boleto.girando .sello-boleto { opacity: .35; }
+.sorpresa-ambito { font-size: 14px; color: var(--tinta-2); }
+.ficha-acciones button:disabled { opacity: .5; cursor: progress; }
+
+/* ---------- Impresión ---------- */
+@media print {
+  .cabecera, .saltar, .chips-barra, .buscador, .estado, .tarjeta-acciones, .portada-acciones,
+  .mesa, .mesa-bloque, dialog, .vacio, .pasaporte, .nota-fotos, .sorpresa-llamado { display: none !important; }
+  body::before { display: none; }
+  body, .pie { background: #fff; color: #000; }
+  .grupo[hidden], .tarjeta[hidden] { display: block !important; }
+  .grilla { display: block; }
+  .tarjeta { box-shadow: none; border: 0; border-bottom: 1px solid #ccc; border-radius: 0; break-inside: avoid; }
+  .foto { display: none; }
+  .tarjeta-cuerpo { padding: 8px 0; }
+  .seccion, .portada { padding-block: 16px; }
+  .pie-grid { padding-block: 16px; }
+  .pie nav { display: none; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-lupa" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none"/></symbol>
+  <symbol id="i-corazon" viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-corazon-lleno" viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-celular" viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-billete" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 9.5v5M18 9.5v5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-avion" viewBox="0 0 24 24"><path transform="rotate(90 12 12)" d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" fill="currentColor"/></symbol>
+  <symbol id="i-dado" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.5" fill="currentColor"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></symbol>
+  <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<div lang="es">
+<a class="saltar" href="#menu">Saltar al menú</a>
+
+<header class="cabecera" id="cabecera">
+  <div class="contenedor cabecera-fila">
+    <a class="marca" href="#inicio" aria-label="Comidas del mundo, volver al inicio">
+      <img src="img/isotipo-rojo-160.png" width="36" height="36" alt="">
+      <span>Comidas del mundo</span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a class="nav-enlace" href="#menu">Menú</a>
+      <a class="nav-enlace" href="#nosotros">Sobre nosotros</a>
+      <a class="nav-enlace" href="#pagos">Pagos</a>
+      <a class="nav-enlace" href="#informacion" id="nav-info" hidden>Información</a>
+      <button type="button" class="btn-favs" id="abrir-favs" aria-haspopup="dialog">
+        <svg class="icono" aria-hidden="true"><use href="#i-corazon"/></svg>
+        <span class="texto">Favoritos</span>
+        <span class="contador" id="contador-favs" aria-hidden="true" hidden>0</span>
+        <span class="sr" id="favs-etiqueta">Mis favoritos, ninguno guardado</span>
+      </button>
+      <a class="btn btn-primario" href="#menu">Ver menú</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="portada" aria-labelledby="titulo-portada">
+    <div class="contenedor portada-grid">
+      <div class="portada-texto">
+        <p class="eyebrow">Comidas del mundo</p>
+        <h1 id="titulo-portada">7 países. <span class="rojo">Una sola mesa.</span></h1>
+        <p class="portada-desc">Descubrí sabores de México, Italia, Brasil, Rusia, Estados Unidos, China y Costa Rica en un solo lugar.</p>
+        <div class="portada-acciones">
+          <a class="btn btn-primario" href="#menu">Ver menú
+            <svg class="icono" aria-hidden="true"><use href="#i-flecha"/></svg></a>
+          <a class="enlace" href="#nosotros">Conocé el proyecto</a>
+        </div>
+        <p class="pago-aviso">
+          <svg class="icono" aria-hidden="true"><use href="#i-celular"/></svg>
+          Aceptamos SINPE Móvil y efectivo.
+        </p>
+      </div>
+
+      <div class="mesa-bloque">
+      <figure class="mesa" id="mesa" role="img" aria-label="Siete platillos del menú, uno por país: tacos de México, pizza de Italia, brigadeiros de Brasil, syrniki de Rusia, hamburguesa de Estados Unidos, arroz cantonés de China y gallo pinto de Costa Rica. Fotos ilustrativas.">
+        <svg class="ruta ruta-m" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <defs><mask id="mascara-m" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100"><polyline class="revelar" pathLength="100" points="11,31 24,69 37,31 50,69 63,31 76,69 89,31" fill="none" stroke="#fff" stroke-width="5"/></mask></defs>
+          <polyline class="trazo" mask="url(#mascara-m)" points="11,31 24,69 37,31 50,69 63,31 76,69 89,31" fill="none" stroke="#CC1A1A" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+        </svg>
+        <svg class="ruta ruta-d" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <defs><mask id="mascara-d" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100"><path class="revelar" pathLength="100" d="M20 20 Q36 10 52 16 Q68 20 82 24 Q90 40 76 54 Q60 62 42 48 Q26 40 14 62 Q22 82 46 82" fill="none" stroke="#fff" stroke-width="5"/></mask></defs>
+          <path class="trazo" mask="url(#mascara-d)" d="M20 20 Q36 10 52 16 Q68 20 82 24 Q90 40 76 54 Q60 62 42 48 Q26 40 14 62 Q22 82 46 82" fill="none" stroke="#CC1A1A" stroke-width="2" stroke-dasharray="2 7" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+        </svg>
+        <div class="plato p1" style="--i:0" data-pais="México"><img src="img/tacos-sq.webp" width="360" height="360" alt="" fetchpriority="high"><span class="codigo">MEX</span></div>
+        <div class="plato p2" style="--i:1" data-pais="Italia"><img src="img/pizza-sq.webp" width="360" height="360" alt="" fetchpriority="high"><span class="codigo">ITA</span></div>
+        <div class="plato p3" style="--i:2" data-pais="Brasil"><img src="img/brigadeiros-sq.webp" width="360" height="360" alt=""><span class="codigo">BRA</span></div>
+        <div class="plato p4" style="--i:3" data-pais="Rusia"><img src="img/syrniki-sq.webp" width="360" height="360" alt=""><span class="codigo">RUS</span></div>
+        <div class="plato p5" style="--i:4" data-pais="Estados Unidos"><img src="img/hamburguesa-sq.webp" width="360" height="360" alt=""><span class="codigo">USA</span></div>
+        <div class="plato p6" style="--i:5" data-pais="China"><img src="img/arroz-cantones-sq.webp" width="360" height="360" alt=""><span class="codigo">CHN</span></div>
+        <div class="plato p7" style="--i:6" data-pais="Costa Rica"><img src="img/gallo-pinto-sq.webp" width="360" height="360" alt=""><span class="codigo">CRI</span></div>
+        <span class="avion" id="avion" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" fill="currentColor"/></svg></span>
+      </figure>
+      <p class="proxima" aria-hidden="true">
+        <svg class="icono"><use href="#i-avion"/></svg>
+        <span>Próxima parada:</span> <strong id="proxima-pais">México</strong>
+      </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="menu" aria-labelledby="titulo-menu">
+    <div class="contenedor">
+      <div class="menu-cabeza">
+        <div class="menu-cabeza-fila">
+          <div class="menu-cabeza-texto">
+            <h2 class="seccion-titulo" id="titulo-menu">Nuestro menú</h2>
+            <p class="nota-fotos">Las fotos son ilustrativas.</p>
+          </div>
+          <div class="sorpresa-llamado">
+            <p>¿No sabés qué pedir?</p>
+            <button type="button" class="btn btn-secundario btn-chico" id="sorprendeme" aria-haspopup="dialog">
+              <svg class="icono" aria-hidden="true"><use href="#i-dado"/></svg>Elegí por mí
+            </button>
+          </div>
+        </div>
+        <div class="buscador" role="search">
+          <label for="buscar">Buscar un platillo</label>
+          <div class="campo">
+            <svg class="icono icono-lupa" aria-hidden="true"><use href="#i-lupa"/></svg>
+            <input id="buscar" type="search" autocomplete="off" autocapitalize="off" spellcheck="false"
+                   enterkeyhint="search" aria-describedby="buscar-ayuda" aria-controls="resultados">
+            <button type="button" class="btn-vaciar" id="vaciar" hidden>
+              <svg class="icono" aria-hidden="true"><use href="#i-x"/></svg>
+              <span class="sr">Vaciar búsqueda</span>
+            </button>
+          </div>
+          <p class="ayuda" id="buscar-ayuda">Buscá un platillo, un país o un ingrediente mencionado en el menú.</p>
+        </div>
+      </div>
+
+      <p class="chips-pregunta" id="chips-titulo">¿A qué país vas hoy?</p>
+      <div class="chips-barra" id="chips-barra">
+        <div class="chips-marco" id="chips-marco">
+          <div class="chips" id="chips" role="group" aria-labelledby="chips-titulo"></div>
+        </div>
+      </div>
+
+      <div class="estado">
+        <p id="estado-texto"></p>
+        <button type="button" class="btn-detalles" id="limpiar" hidden>Limpiar filtros</button>
+      </div>
+      <p class="sr" id="anuncio" aria-live="polite" aria-atomic="true"></p>
+
+      <div class="resultados" id="resultados"></div>
+    </div>
+  </section>
+
+  <section class="seccion" id="nosotros" aria-labelledby="titulo-nosotros">
+    <div class="contenedor nosotros-grid">
+      <div class="nosotros-texto">
+        <p class="eyebrow">Sobre nosotros</p>
+        <h2 class="seccion-titulo" id="titulo-nosotros">Siete países en un solo menú</h2>
+        <p>Somos Comidas del mundo, un emprendimiento gastronómico de un grupo del Colegio Sion. Reunimos comida sencilla, estilo soda, de siete países en un solo lugar, para que podás explorar distintos sabores desde un mismo menú.</p>
+        <p>De México a Costa Rica, pasando por Italia, Brasil, Rusia, Estados Unidos y China, cada sección del menú te invita a elegir tu próxima parada.</p>
+      </div>
+      <div class="pasaporte">
+        <img class="sello-grande" src="img/sello-rojo-560.webp" width="560" height="553" alt="Logo de Comidas del mundo: sello de pasaporte con un globo, un avión y un tenedor" loading="lazy">
+        <div class="parada">
+          <p class="parada-titulo">Tu próxima parada</p>
+          <ol id="ruta-paises"></ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="pagos" aria-labelledby="titulo-pagos">
+    <div class="contenedor">
+      <div class="pagos-panel">
+        <div>
+          <h2 id="titulo-pagos">¿Cómo podés pagar?</h2>
+          <p class="seccion-sub">Aceptamos SINPE Móvil y efectivo.</p>
+        </div>
+        <div class="metodos">
+          <div class="metodo">
+            <span class="icono-grande" aria-hidden="true"><svg><use href="#i-celular"/></svg></span>
+            <strong>SINPE Móvil</strong>
+          </div>
+          <div class="metodo">
+            <span class="icono-grande" aria-hidden="true"><svg><use href="#i-billete"/></svg></span>
+            <strong>Efectivo</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="informacion" aria-labelledby="titulo-info" hidden></section>
+</main>
+
+<footer class="pie">
+  <div class="contenedor pie-grid">
+    <div style="display:grid; gap:12px">
+      <a class="marca" href="#inicio" aria-label="Comidas del mundo, volver al inicio">
+        <img src="img/isotipo-blanco-160.png" width="44" height="44" alt="" loading="lazy">
+        <span>Comidas del mundo</span>
+      </a>
+      <p class="pie-lema">7 países. Una sola mesa.</p>
+      <p class="pie-nota">Emprendimiento de un grupo del Colegio Sion. Las fotos del menú son ilustrativas.</p>
+    </div>
+    <nav aria-label="Pie de página">
+      <ul>
+        <li><a href="#menu">Menú</a></li>
+        <li><a href="#nosotros">Sobre nosotros</a></li>
+        <li><a href="#pagos">Pagos</a></li>
+        <li id="pie-info" hidden><a href="#informacion">Información</a></li>
+        <li><a href="#inicio">Volver al inicio</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<dialog id="ficha" aria-labelledby="ficha-titulo">
+  <div class="dlg-barra">
+    <button type="button" class="btn-cerrar" data-cerrar autofocus>
+      <svg class="icono" aria-hidden="true"><use href="#i-x"/></svg>Cerrar
+    </button>
+  </div>
+  <div class="ficha-foto" id="ficha-foto"></div>
+  <div class="ficha-cuerpo">
+    <p class="pais-etiqueta" id="ficha-pais"></p>
+    <h2 id="ficha-titulo"></h2>
+    <p class="tarjeta-desc" id="ficha-desc"></p>
+    <div class="ficha-acciones">
+      <button type="button" class="btn-fav" id="ficha-fav" aria-pressed="false">
+        <svg class="icono corazon-vacio" aria-hidden="true"><use href="#i-corazon"/></svg>
+        <svg class="icono corazon-lleno" aria-hidden="true"><use href="#i-corazon-lleno"/></svg>
+        <span class="t-guardar" aria-hidden="true">Guardar en favoritos</span><span class="t-guardado" aria-hidden="true">Guardado en favoritos</span>
+      </button>
+    </div>
+    <p class="ficha-nota" id="ficha-nota">Foto ilustrativa.</p>
+  </div>
+</dialog>
+
+<dialog id="sorpresa" aria-labelledby="sorpresa-titulo">
+  <div class="dlg-barra con-titulo">
+    <h2 id="sorpresa-titulo">Tu destino de hoy</h2>
+    <button type="button" class="btn-cerrar" data-cerrar autofocus>
+      <svg class="icono" aria-hidden="true"><use href="#i-x"/></svg>Cerrar
+    </button>
+  </div>
+  <div class="sorpresa-cuerpo">
+    <div class="boleto" id="boleto">
+      <div class="boleto-foto" id="sorpresa-foto"></div>
+      <div class="boleto-info">
+        <span class="sello-pais sello-boleto" id="sorpresa-sello" aria-hidden="true"></span>
+        <div class="boleto-texto">
+          <p class="pais-etiqueta" id="sorpresa-pais"></p>
+          <p class="boleto-nombre" id="sorpresa-nombre"></p>
+          <p class="tarjeta-desc" id="sorpresa-desc"></p>
+        </div>
+      </div>
+    </div>
+    <p class="sr" id="sorpresa-anuncio" aria-live="polite"></p>
+    <p class="sorpresa-ambito" id="sorpresa-ambito"></p>
+    <div class="ficha-acciones">
+      <button type="button" class="btn btn-primario btn-chico" id="sorpresa-otra">
+        <svg class="icono" aria-hidden="true"><use href="#i-dado"/></svg>Elegir otro
+      </button>
+      <button type="button" class="btn-fav" id="sorpresa-fav" aria-pressed="false">
+        <svg class="icono corazon-vacio" aria-hidden="true"><use href="#i-corazon"/></svg>
+        <svg class="icono corazon-lleno" aria-hidden="true"><use href="#i-corazon-lleno"/></svg>
+        <span class="t-guardar" aria-hidden="true">Guardar</span><span class="t-guardado" aria-hidden="true">Guardado</span>
+      </button>
+      <button type="button" class="btn-detalles" id="sorpresa-ver">Ver en el menú</button>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="favoritos" aria-labelledby="favs-titulo">
+  <div class="dlg-barra">
+    <h2 id="favs-titulo">Mis favoritos</h2>
+    <button type="button" class="btn-cerrar" data-cerrar autofocus>
+      <svg class="icono" aria-hidden="true"><use href="#i-x"/></svg>Cerrar
+    </button>
+  </div>
+  <div class="favs-cuerpo">
+    <p class="favs-vacio" id="favs-vacio">Todavía no guardaste ningún platillo. Explorá el menú y elegí tus favoritos.</p>
+    <ul class="favs-lista" id="favs-lista"></ul>
+    <p class="favs-nota">Tu selección es una lista de favoritos; no se envía como pedido.</p>
+    <p class="favs-nota" id="favs-sesion" hidden>Este navegador no permite guardar datos, así que tus favoritos se mantienen solo mientras esta página esté abierta.</p>
+    <div><button type="button" class="btn btn-secundario btn-chico" id="volver-menu">Volver al menú</button></div>
+  </div>
+</dialog>
+</div>
+
+<script>
+/* =====================================================================
+   CONTENIDO EDITABLE
+   Cambiá aquí textos, productos e imágenes. Todo lo demás se calcula
+   a partir de estos datos (conteos, filtros, búsqueda, favoritos y fichas).
+   ===================================================================== */
+
+/* Datos de contacto opcionales. Dejá un campo vacío ('') para que no se
+   muestre. Si todos están vacíos, la sección «Información» no aparece. */
+const CONTACTO = {
+  ubicacion: '',
+  horario: '',
+  telefono: '',
+  instagram: ''   // URL completa, por ejemplo https://www.instagram.com/usuario
+};
+
+/* Países, en el orden del menú. "codigo" es el código ISO de tres letras. */
+const PAISES = [
+  { id: 'mexico',         nombre: 'México',         codigo: 'MEX' },
+  { id: 'italia',         nombre: 'Italia',         codigo: 'ITA' },
+  { id: 'brasil',         nombre: 'Brasil',         codigo: 'BRA' },
+  { id: 'rusia',          nombre: 'Rusia',          codigo: 'RUS' },
+  { id: 'estados-unidos', nombre: 'Estados Unidos', codigo: 'USA' },
+  { id: 'china',          nombre: 'China',          codigo: 'CHN' },
+  { id: 'costa-rica',     nombre: 'Costa Rica',     codigo: 'CRI' }
+];
+
+/* Platillos. "imagen" es el nombre base del archivo en img/ (se usan
+   <imagen>-480.webp y <imagen>-800.webp). Dejalo vacío ('') si no hay foto. */
+const PLATILLOS = [
+  { id: 'tacos',             orden: 1,  pais: 'mexico', nombre: 'Tacos',      descripcion: 'Tortillas de maíz con carne, cebolla y culantro.', imagen: 'tacos', alt: 'Tacos en tortilla de maíz con carne, cebolla y culantro' },
+  { id: 'quesadilla',        orden: 2,  pais: 'mexico', nombre: 'Quesadilla', descripcion: 'Tortilla dorada rellena de queso derretido y carne.', imagen: 'quesadilla', alt: 'Quesadilla dorada cortada, rellena de queso y carne' },
+
+  { id: 'arancini',          orden: 3,  pais: 'italia', nombre: 'Arancini',   descripcion: 'Bolitas de arroz rellenas de queso, empanizadas y con salsa de tomate.', imagen: 'arancini', alt: 'Bolitas de arroz empanizadas junto a un tazón de salsa de tomate' },
+  { id: 'pizza',             orden: 4,  pais: 'italia', nombre: 'Pizza',      descripcion: 'Salsa de tomate, queso mozzarella y albahaca.', imagen: 'pizza', alt: 'Pizza con salsa de tomate, mozzarella y hojas de albahaca' },
+
+  { id: 'brigadeiros',       orden: 5,  pais: 'brasil', nombre: 'Brigadeiros', descripcion: 'Bolitas de chocolate y leche condensada.', imagen: 'brigadeiros', alt: 'Brigadeiros, bolitas de chocolate, en un tazón' },
+  { id: 'beijinhos',         orden: 6,  pais: 'brasil', nombre: 'Beijinhos',   descripcion: 'Bolitas de coco y leche condensada.', imagen: 'beijinhos', alt: 'Beijinhos, bolitas blancas cubiertas de coco' },
+
+  { id: 'syrniki',           orden: 7,  pais: 'rusia',  nombre: 'Syrniki',    descripcion: 'Tortitas rusas de queso, doradas y suaves, con frutos rojos.', imagen: 'syrniki', alt: 'Tortitas de queso doradas con frutos rojos y mermelada' },
+  { id: 'kartoshka',         orden: 8,  pais: 'rusia',  nombre: 'Kartoshka',  descripcion: 'Postre ruso de galleta y chocolate con crema.', imagen: 'kartoshka', alt: 'Postre de galleta y chocolate decorado con crema' },
+  { id: 'blini',             orden: 9,  pais: 'rusia',  nombre: 'Blini',      descripcion: 'Crepas rusas finas, con frutos rojos y azúcar glas.', imagen: 'blini', alt: 'Crepas finas dobladas con frutos rojos y azúcar glas' },
+  { id: 'zefir',             orden: 10, pais: 'rusia',  nombre: 'Zefir',      descripcion: 'Malvavisco ruso suave, con forma de flor.', imagen: 'zefir', alt: 'Zefir blancos y rosados con forma de flor' },
+
+  { id: 'papas-fritas',      orden: 11, pais: 'estados-unidos', nombre: 'Papas fritas',      descripcion: 'Doradas y crujientes.', imagen: 'papas-fritas', alt: 'Papas fritas doradas' },
+  { id: 'hamburguesa',       orden: 12, pais: 'estados-unidos', nombre: 'Hamburguesa',       descripcion: 'Torta de carne con queso, lechuga y tomate.', imagen: 'hamburguesa', alt: 'Hamburguesa con carne, queso, lechuga y tomate' },
+  { id: 'algodon-de-azucar', orden: 13, pais: 'estados-unidos', nombre: 'Algodón de azúcar', descripcion: 'Dulce, suave y esponjoso.', imagen: 'algodon-de-azucar', alt: 'Algodón de azúcar rosado' },
+  { id: 'hot-dog',           orden: 14, pais: 'estados-unidos', nombre: 'Hot dog',           descripcion: 'Salchicha en pan con salsas.', imagen: 'hot-dog', alt: 'Hot dogs con salchicha, pan y salsas' },
+
+  { id: 'arroz-cantones',    orden: 15, pais: 'china', nombre: 'Arroz cantonés',  descripcion: 'Arroz frito con carne, huevo y vegetales.', imagen: 'arroz-cantones', alt: 'Arroz frito con carne y vegetales' },
+  { id: 'pollo-agridulce',   orden: 16, pais: 'china', nombre: 'Pollo agridulce', descripcion: 'Pollo con salsa agridulce, piña y chile dulce.', imagen: 'pollo-agridulce', alt: 'Pollo en salsa agridulce con piña y chile dulce' },
+
+  { id: 'gallo-pinto',       orden: 17, pais: 'costa-rica', nombre: 'Gallo pinto', descripcion: 'Arroz y frijoles al estilo tico.', imagen: 'gallo-pinto', alt: 'Gallo pinto, arroz con frijoles, servido en plato' },
+  { id: 'patacones',         orden: 18, pais: 'costa-rica', nombre: 'Patacones',   descripcion: 'Plátano verde frito, aplastado y crujiente.', imagen: 'patacones', alt: 'Patacones de plátano verde fritos y aplastados' }
+];
+
+/* Complementos: categorías generales, separadas de los platillos.
+   "imagen" funciona igual que en los platillos; vacía usa una ilustración. */
+const COMPLEMENTOS = [
+  { id: 'bebidas', nombre: 'Bebidas', descripcion: 'Refrescos bien fríos.', imagen: '' },
+  { id: 'dulces-y-juguetes', nombre: 'Dulces y juguetes', descripcion: 'Confites, golosinas y juguetitos sorpresa para disfrutar o regalar.',
+    imagen: 'dulces', alt: 'Confites de colores',
+    detalle: [
+      { titulo: 'Para comer:', texto: 'confites y golosinas.' },
+      { titulo: 'Para jugar:', texto: 'juguetitos sorpresa. No son comestibles.' }
+    ] }
+];
+
+/* =====================================================================
+   LÓGICA DE LA PÁGINA
+   ===================================================================== */
+(function () {
+  const $ = (s, el = document) => el.querySelector(s);
+  const paisPorId = Object.fromEntries(PAISES.map(p => [p.id, p]));
+  const platillos = PLATILLOS.slice().sort((a, b) => a.orden - b.orden);
+  const reducido = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  const norm = s => (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  platillos.forEach(p => { p.paisNombre = paisPorId[p.pais].nombre; p.buscable = norm(p.nombre + ' ' + p.paisNombre + ' ' + p.descripcion); });
+  COMPLEMENTOS.forEach(c => { c.buscable = norm(c.nombre + ' ' + c.descripcion); });
+
+  const plural = (n, uno, varios) => n + ' ' + (n === 1 ? uno : varios);
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  /* Ruta de una imagen de la carpeta img/ (o la copia incrustada en la versión de un solo archivo) */
+  const rutaImg = n => (window.IMAGENES_EMBEBIDAS && window.IMAGENES_EMBEBIDAS[n]) || 'img/' + n;
+  const svgUse = (id, cls = 'icono') => `<svg class="${cls}" aria-hidden="true"><use href="#${id}"/></svg>`;
+
+  /* ---------- Estado ---------- */
+  const estado = { sel: 'todos', q: '' };
+
+  /* ---------- Favoritos (almacenamiento local con respaldo en memoria) ---------- */
+  const CLAVE = 'comidas-del-mundo:favoritos';
+  let almacenamientoOK = true;
+  let favoritos = new Set();
+  try {
+    localStorage.setItem(CLAVE + ':prueba', '1');
+    localStorage.removeItem(CLAVE + ':prueba');
+    const guardados = JSON.parse(localStorage.getItem(CLAVE) || '[]');
+    if (Array.isArray(guardados)) guardados.forEach(id => { if (platillos.some(p => p.id === id)) favoritos.add(id); });
+  } catch (e) { almacenamientoOK = false; }
+  function guardarFavoritos() {
+    if (!almacenamientoOK) return;
+    try { localStorage.setItem(CLAVE, JSON.stringify([...favoritos])); }
+    catch (e) { almacenamientoOK = false; $('#favs-sesion').hidden = false; }
+  }
+
+  /* ---------- Imágenes ---------- */
+  function fotoHTML(p, { grande = false, lazy = true } = {}) {
+    if (!p.imagen) return vaciaHTML(p);
+    const sizes = grande ? '(min-width: 700px) 560px, 100vw' : '(min-width: 1024px) 380px, (min-width: 640px) 46vw, 100vw';
+    return `<img src="${rutaImg(p.imagen + '-800.webp')}" srcset="${rutaImg(p.imagen + '-480.webp')} 480w, ${rutaImg(p.imagen + '-800.webp')} 800w"
+      sizes="${sizes}" width="800" height="600" alt="${esc(p.alt)}" ${lazy ? 'loading="lazy"' : ''} decoding="async" data-fallback="${p.id}">`;
+  }
+  function vaciaHTML(p) {
+    return `<div class="foto-vacia" aria-hidden="true">
+      <span class="sello-pais">${paisPorId[p.pais].codigo}</span>
+      <span class="nombre-grande">${esc(p.nombre)}</span></div>`;
+  }
+  document.addEventListener('error', e => {
+    const img = e.target;
+    if (!(img instanceof HTMLImageElement) || !img.dataset.fallback) return;
+    const p = platillos.find(x => x.id === img.dataset.fallback);
+    const caja = img.parentElement;
+    if (p && caja) { caja.innerHTML = vaciaHTML(p); }
+  }, true);
+  document.addEventListener('error', e => {
+    const img = e.target;
+    if (img instanceof HTMLImageElement && img.dataset.ilustracion)
+      img.parentElement.innerHTML = `<div class="foto-vacia" aria-hidden="true">${ILUSTRACION[img.dataset.ilustracion] || ''}</div>`;
+  }, true);
+
+  /* ---------- Construcción del menú ---------- */
+  const resultados = $('#resultados');
+  const tarjetas = new Map();
+  const grupos = new Map();
+
+  function tarjetaPlatillo(p) {
+    const el = document.createElement('article');
+    el.className = 'tarjeta abrible';
+    el.dataset.id = p.id;
+    el.setAttribute('aria-labelledby', 't-' + p.id);
+    el.innerHTML = `
+      <div class="foto" data-abrir="${p.id}">${fotoHTML(p)}</div>
+      <div class="tarjeta-cuerpo">
+        <p class="pais-etiqueta">${esc(p.paisNombre)}</p>
+        <h4 id="t-${p.id}">${esc(p.nombre)}</h4>
+        <p class="tarjeta-desc">${esc(p.descripcion)}</p>
+        <div class="tarjeta-acciones">
+          <button type="button" class="btn-detalles" data-abrir="${p.id}" aria-haspopup="dialog">Ver detalles<span class="sr"> de ${esc(p.nombre)}</span></button>
+          <button type="button" class="btn-fav" data-fav="${p.id}" aria-pressed="false" aria-label="Guardar ${esc(p.nombre)} en favoritos">
+            ${svgUse('i-corazon', 'icono corazon-vacio')}${svgUse('i-corazon-lleno', 'icono corazon-lleno')}
+            <span class="t-guardar" aria-hidden="true">Guardar</span><span class="t-guardado" aria-hidden="true">Guardado</span>
+          </button>
+        </div>
+      </div>`;
+    return el;
+  }
+
+  const ILUSTRACION = {
+    'bebidas': `<svg viewBox="0 0 96 96" aria-hidden="true"><path d="M30 26h36l-5 56H35z" fill="#fff" stroke="#CC1A1A" stroke-width="3" stroke-linejoin="round"/><path d="M33 46h30l-2.6 33H35.6z" fill="#CC1A1A" opacity=".18"/><path d="M52 26l8-14h10" fill="none" stroke="#CC1A1A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><rect x="38" y="50" width="9" height="9" rx="2" fill="#fff" stroke="#CC1A1A" stroke-width="2.5"/><rect x="49" y="58" width="9" height="9" rx="2" fill="#fff" stroke="#CC1A1A" stroke-width="2.5"/></svg>`,
+    'dulces-y-juguetes': `<svg viewBox="0 0 96 96" aria-hidden="true"><g transform="rotate(-20 34 40)"><path d="M14 40l8-7v14z M54 40l-8-7v14z" fill="#CC1A1A" opacity=".85"/><ellipse cx="34" cy="40" rx="13" ry="10" fill="#fff" stroke="#CC1A1A" stroke-width="3"/><path d="M28 34c4 4 8 8 12 12" stroke="#CC1A1A" stroke-width="2.5" stroke-linecap="round"/></g><rect x="50" y="52" width="28" height="24" rx="3" fill="#fff" stroke="#CC1A1A" stroke-width="3"/><path d="M50 61h28M64 52v24" stroke="#CC1A1A" stroke-width="3"/><path d="M64 52c-6-8-14-4-9 0 2 1 6 0 9 0zm0 0c6-8 14-4 9 0-2 1-6 0-9 0z" fill="none" stroke="#CC1A1A" stroke-width="2.5" stroke-linejoin="round"/></svg>`
+  };
+
+  function tarjetaComplemento(c) {
+    const el = document.createElement('article');
+    el.className = 'tarjeta';
+    el.dataset.comp = c.id;
+    el.setAttribute('aria-labelledby', 't-' + c.id);
+    const detalle = c.detalle ? `<ul class="lista-dulces">${c.detalle.map(d => `<li><span><strong>${esc(d.titulo)}</strong> ${esc(d.texto)}</span></li>`).join('')}</ul>` : '';
+    el.innerHTML = `
+      <div class="foto">${c.imagen
+        ? `<img src="${rutaImg(c.imagen + '-800.webp')}" srcset="${rutaImg(c.imagen + '-480.webp')} 480w, ${rutaImg(c.imagen + '-800.webp')} 800w" sizes="(min-width: 1024px) 380px, (min-width: 640px) 46vw, 100vw" width="800" height="600" alt="${esc(c.alt || '')}" loading="lazy" decoding="async" data-ilustracion="${c.id}">`
+        : `<div class="foto-vacia" aria-hidden="true">${ILUSTRACION[c.id] || ''}</div>`}</div>
+      <div class="tarjeta-cuerpo">
+        <p class="pais-etiqueta">Complemento</p>
+        <h4 id="t-${c.id}">${esc(c.nombre)}</h4>
+        <p class="tarjeta-desc">${esc(c.descripcion)}</p>
+        ${detalle}
+      </div>`;
+    return el;
+  }
+
+  function grupoBase(id, titulo, sello) {
+    const sec = document.createElement('section');
+    sec.className = 'grupo';
+    sec.dataset.grupo = id;
+    sec.setAttribute('aria-labelledby', 'g-' + id);
+    sec.innerHTML = `
+      <div class="grupo-cabeza">
+        <span class="sello-pais" aria-hidden="true">${sello}</span>
+        <div class="grupo-titulos">
+          <h3 id="g-${id}">${esc(titulo)}</h3>
+          <p class="grupo-conteo"></p>
+        </div>
+        <span class="grupo-linea" aria-hidden="true"></span>
+      </div>
+      <div class="grilla"></div>`;
+    return sec;
+  }
+
+  PAISES.forEach(pais => {
+    const sec = grupoBase(pais.id, pais.nombre, pais.codigo);
+    const grilla = sec.querySelector('.grilla');
+    platillos.filter(p => p.pais === pais.id).forEach(p => {
+      const t = tarjetaPlatillo(p);
+      tarjetas.set(p.id, t);
+      grilla.appendChild(t);
+    });
+    grupos.set(pais.id, sec);
+    resultados.appendChild(sec);
+  });
+  const secComp = grupoBase('complementos', 'Para acompañar', '+');
+  const grillaComp = secComp.querySelector('.grilla');
+  const tarjetasComp = new Map();
+  COMPLEMENTOS.forEach(c => { const t = tarjetaComplemento(c); tarjetasComp.set(c.id, t); grillaComp.appendChild(t); });
+  grupos.set('complementos', secComp);
+  resultados.appendChild(secComp);
+
+  const vacio = document.createElement('div');
+  vacio.className = 'vacio';
+  vacio.hidden = true;
+  vacio.innerHTML = `
+    <h3>No encontramos ese platillo.</h3>
+    <p>Probá con otro nombre o explorá el menú completo.</p>
+    <div class="vacio-acciones">
+      <button type="button" class="btn btn-primario btn-chico" id="buscar-todo">Buscar en todo el menú</button>
+      <button type="button" class="btn btn-secundario btn-chico" id="ver-completo">Ver menú completo</button>
+    </div>`;
+  resultados.appendChild(vacio);
+
+  /* Ruta de países en «Sobre nosotros» */
+  $('#ruta-paises').innerHTML = PAISES.map(p => `<li><span class="cod" title="${esc(p.nombre)}"><span aria-hidden="true">${p.codigo}</span><span class="sr">${esc(p.nombre)}</span></span></li>`).join('');
+
+  /* ---------- Opciones de filtro ---------- */
+  const OPCIONES = [{ id: 'todos', nombre: 'Todos' }]
+    .concat(PAISES.map(p => ({ id: p.id, nombre: p.nombre, pais: true })))
+    .concat(COMPLEMENTOS.map(c => ({ id: c.id, nombre: c.nombre, comp: true })));
+  const chips = $('#chips');
+  chips.innerHTML = OPCIONES.map((o, i) => {
+    const divisor = (o.comp && !OPCIONES[i - 1].comp) ? '<span class="divisor" aria-hidden="true"></span>' : '';
+    const num = o.comp ? '' : '<span class="num" aria-hidden="true"></span>';
+    return `${divisor}<button type="button" class="chip" data-sel="${o.id}" aria-pressed="false"><span class="chip-nombre">${esc(o.nombre)}</span>${num}<span class="sr chip-sr"></span></button>`;
+  }).join('');
+
+  /* ---------- Filtrado ---------- */
+  const tokens = () => norm(estado.q).trim().split(/\s+/).filter(Boolean);
+  const coincide = (item, tk) => tk.every(t => item.buscable.includes(t));
+  const nombreSel = () => (OPCIONES.find(o => o.id === estado.sel) || {}).nombre;
+
+  let anuncioTimer;
+  function anunciar(txt, inmediato) {
+    clearTimeout(anuncioTimer);
+    const fn = () => { $('#anuncio').textContent = txt; };
+    inmediato ? fn() : (anuncioTimer = setTimeout(fn, 700));
+  }
+
+  function aplicar({ anunciarInmediato = false } = {}) {
+    const tk = tokens();
+    const sel = estado.sel;
+    const esPais = !!paisPorId[sel];
+    const esComp = COMPLEMENTOS.some(c => c.id === sel);
+
+    const coincidenPlat = platillos.filter(p => coincide(p, tk));
+    const coincidenComp = COMPLEMENTOS.filter(c => coincide(c, tk));
+
+    // Conteos por opción (según la búsqueda actual)
+    chips.querySelectorAll('.chip').forEach(b => {
+      const id = b.dataset.sel;
+      const activo = id === sel;
+      b.setAttribute('aria-pressed', String(activo));
+      const numEl = b.querySelector('.num');
+      const srEl = b.querySelector('.chip-sr');
+      if (numEl) {
+        const n = id === 'todos' ? coincidenPlat.length : coincidenPlat.filter(p => p.pais === id).length;
+        numEl.textContent = n;
+        srEl.textContent = ', ' + plural(n, 'platillo', 'platillos');
+      }
+    });
+
+    // Visibilidad de platillos y grupos
+    const antes = new Set([...tarjetas].filter(([, t]) => !t.hidden && !t.closest('[hidden]')).map(([id]) => id));
+    const gruposAntes = new Set([...grupos].filter(([, g]) => !g.hidden).map(([id]) => id));
+    let visiblesPlat = 0;
+    PAISES.forEach(pais => {
+      const mostrarGrupo = sel === 'todos' || sel === pais.id;
+      let enGrupo = 0, totalGrupo = 0;
+      platillos.filter(p => p.pais === pais.id).forEach(p => {
+        totalGrupo++;
+        const ver = mostrarGrupo && coincidenPlat.includes(p);
+        tarjetas.get(p.id).hidden = !ver;
+        if (ver) enGrupo++;
+      });
+      const g = grupos.get(pais.id);
+      g.hidden = !(mostrarGrupo && enGrupo > 0);
+      g.querySelector('.grupo-conteo').textContent = tk.length && enGrupo !== totalGrupo
+        ? `${enGrupo} de ${plural(totalGrupo, 'platillo', 'platillos')}`
+        : plural(totalGrupo, 'platillo', 'platillos');
+      visiblesPlat += g.hidden ? 0 : enGrupo;
+    });
+
+    let visiblesComp = 0;
+    COMPLEMENTOS.forEach(c => {
+      const ver = (sel === 'todos' || sel === c.id) && coincidenComp.includes(c);
+      tarjetasComp.get(c.id).hidden = !ver;
+      if (ver) visiblesComp++;
+    });
+    secComp.hidden = visiblesComp === 0;
+    secComp.querySelector('.grupo-conteo').textContent = sel === 'todos' && !tk.length
+      ? plural(COMPLEMENTOS.length, 'complemento', 'complementos')
+      : plural(visiblesComp, 'complemento', 'complementos');
+
+    // Animación de entrada solo para lo que acaba de aparecer
+    let orden = 0;
+    tarjetas.forEach((t, id) => {
+      if (!t.hidden && !t.closest('[hidden]') && !antes.has(id)) {
+        t.classList.remove('entrando'); void t.offsetWidth;
+        t.style.setProperty('--d', Math.min(orden++, 8) * 45 + 'ms');
+        t.classList.add('entrando');
+      }
+    });
+    grupos.forEach((g, id) => { if (!g.hidden && !gruposAntes.has(id)) sellarGrupo(g); });
+
+    // Estado vacío
+    const total = visiblesPlat + visiblesComp;
+    vacio.hidden = total > 0;
+    $('#buscar-todo').hidden = sel === 'todos';
+
+    // Texto de estado
+    const filtrando = sel !== 'todos' || tk.length > 0;
+    let texto;
+    const qTxt = tk.length ? ` para «${esc(estado.q.trim())}»` : '';
+    const donde = sel === 'todos' ? 'en todo el menú' : (esPais ? `de ${nombreSel()}` : `en ${nombreSel()}`);
+    if (!filtrando) {
+      texto = `<strong>${plural(platillos.length, 'platillo', 'platillos')}</strong> de ${PAISES.length} países, más ${plural(COMPLEMENTOS.length, 'complemento', 'complementos')}: bebidas y dulces.`;
+    } else if (total === 0) {
+      texto = `<strong>Sin resultados</strong> ${donde}${qTxt}.`;
+    } else {
+      const partes = [];
+      if (visiblesPlat) partes.push(plural(visiblesPlat, 'platillo', 'platillos'));
+      if (visiblesComp) partes.push(plural(visiblesComp, 'complemento', 'complementos'));
+      texto = `<strong>${partes.join(' y ')}</strong> ${donde}${qTxt}.`;
+    }
+    $('#estado-texto').innerHTML = texto;
+    $('#limpiar').hidden = !filtrando;
+    $('#vaciar').hidden = estado.q.length === 0;
+
+    const plano = $('#estado-texto').textContent;
+    anunciar(total === 0 ? 'No encontramos ese platillo. ' + plano : plano, anunciarInmediato);
+  }
+
+  /* ---------- Desplazamiento suave y estable ---------- */
+  function irA(el) {
+    if (!el) return;
+    el.scrollIntoView({ behavior: reducido.matches ? 'auto' : 'smooth', block: 'start' });
+  }
+  function asegurarInicioResultados() {
+    const top = resultados.getBoundingClientRect().top;
+    const offset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) +
+                   ($('#chips-barra').offsetHeight || 0);
+    if (top < offset) irA(resultados);
+  }
+
+  function centrarChip(btn) {
+    const cont = chips;
+    const izq = btn.offsetLeft;
+    const der = izq + btn.offsetWidth;
+    if (izq < cont.scrollLeft + 8 || der > cont.scrollLeft + cont.clientWidth - 8) {
+      cont.scrollTo({ left: Math.max(0, izq - (cont.clientWidth - btn.offsetWidth) / 2), behavior: reducido.matches ? 'auto' : 'smooth' });
+    }
+  }
+
+  function seleccionar(id, { foco = false } = {}) {
+    estado.sel = id;
+    aplicar({ anunciarInmediato: true });
+    const btn = chips.querySelector(`[data-sel="${id}"]`);
+    if (btn) { centrarChip(btn); if (foco) btn.focus({ preventScroll: true }); }
+    asegurarInicioResultados();
+  }
+
+  chips.addEventListener('click', e => {
+    const b = e.target.closest('.chip');
+    if (b) seleccionar(b.dataset.sel);
+  });
+
+  const input = $('#buscar');
+  input.addEventListener('input', () => { estado.q = input.value; aplicar(); });
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && input.value) { e.preventDefault(); input.value = ''; estado.q = ''; aplicar({ anunciarInmediato: true }); }
+    if (e.key === 'Enter') { e.preventDefault(); input.blur(); }
+  });
+  $('#vaciar').addEventListener('click', () => {
+    input.value = ''; estado.q = ''; aplicar({ anunciarInmediato: true }); input.focus();
+  });
+  $('#limpiar').addEventListener('click', () => {
+    input.value = ''; estado.q = '';
+    seleccionar('todos', { foco: true });
+  });
+  $('#buscar-todo').addEventListener('click', () => { seleccionar('todos'); input.focus({ preventScroll: true }); });
+  $('#ver-completo').addEventListener('click', () => {
+    input.value = ''; estado.q = '';
+    seleccionar('todos'); input.focus({ preventScroll: true });
+  });
+
+  /* Señal de «hay más opciones» en la fila desplazable */
+  const marco = $('#chips-marco');
+  function revisarMas() { marco.classList.toggle('hay-mas', chips.scrollLeft + chips.clientWidth < chips.scrollWidth - 4); }
+  chips.addEventListener('scroll', revisarMas, { passive: true });
+
+  /* Alturas de la cabecera y de la fila de filtros, para los desplazamientos */
+  const raiz = document.documentElement;
+  function medir() {
+    raiz.style.setProperty('--header-h', $('#cabecera').offsetHeight + 'px');
+    raiz.style.setProperty('--chips-h', $('#chips-barra').offsetHeight + 'px');
+    revisarMas();
+  }
+  if ('ResizeObserver' in window) {
+    const ro = new ResizeObserver(medir);
+    ro.observe($('#cabecera')); ro.observe($('#chips-barra')); ro.observe(chips);
+  }
+  window.addEventListener('resize', medir);
+
+  /* ---------- Favoritos ---------- */
+  function refrescarFavs() {
+    const n = favoritos.size;
+    document.querySelectorAll('[data-fav]').forEach(b => b.setAttribute('aria-pressed', String(favoritos.has(b.dataset.fav))));
+    const c = $('#contador-favs');
+    c.textContent = n; c.hidden = n === 0;
+    $('#favs-etiqueta').textContent = n === 0 ? 'Mis favoritos, ninguno guardado' : `Mis favoritos, ${plural(n, 'platillo guardado', 'platillos guardados')}`;
+    $('#favs-titulo').textContent = n ? `Mis favoritos (${n})` : 'Mis favoritos';
+    const lista = $('#favs-lista');
+    const elegidos = platillos.filter(p => favoritos.has(p.id));
+    lista.innerHTML = elegidos.map(p => `
+      <li class="fav-item" data-item="${p.id}">
+        <div class="fav-mini">${p.imagen
+          ? `<img src="${rutaImg(p.imagen + '-480.webp')}" width="480" height="360" alt="" loading="lazy" data-fallback-mini="${paisPorId[p.pais].codigo}">`
+          : `<span class="mini-cod" aria-hidden="true">${paisPorId[p.pais].codigo}</span>`}</div>
+        <div><p class="fav-nombre">${esc(p.nombre)}</p><p class="fav-pais">${esc(p.paisNombre)}</p></div>
+        <button type="button" class="btn-quitar" data-quitar="${p.id}" aria-label="Quitar ${esc(p.nombre)} de favoritos">Quitar</button>
+      </li>`).join('');
+    lista.hidden = n === 0;
+    $('#favs-vacio').hidden = n > 0;
+    const fichaFav = $('#ficha-fav');
+    if (fichaFav.dataset.fav) fichaFav.setAttribute('aria-pressed', String(favoritos.has(fichaFav.dataset.fav)));
+  }
+  function reanimar(el, clase) { if (!el) return; el.classList.remove(clase); void el.offsetWidth; el.classList.add(clase); }
+  function alternarFav(id) {
+    favoritos.has(id) ? favoritos.delete(id) : favoritos.add(id);
+    guardarFavoritos();
+    refrescarFavs();
+    if (favoritos.has(id)) {
+      document.querySelectorAll(`[data-fav="${id}"]`).forEach(b => reanimar(b, 'latido'));
+      reanimar($('#abrir-favs'), 'latido');
+      reanimar($('#contador-favs'), 'salto');
+    }
+    const p = platillos.find(x => x.id === id);
+    anunciar(favoritos.has(id) ? `${p.nombre} se guardó en favoritos.` : `${p.nombre} se quitó de favoritos.`, true);
+  }
+  $('#favs-lista').addEventListener('error', e => {
+    const img = e.target;
+    if (img instanceof HTMLImageElement && img.dataset.fallbackMini) img.parentElement.innerHTML = `<span class="mini-cod" aria-hidden="true">${img.dataset.fallbackMini}</span>`;
+  }, true);
+
+  /* ---------- Diálogos ---------- */
+  let opener = null;
+  function abrirDialogo(dlg, desde) {
+    opener = desde || document.activeElement;
+    raiz.classList.add('bloqueado');
+    if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+  }
+  function cerrarDialogo(dlg) {
+    if (typeof dlg.close === 'function') dlg.close(); else { dlg.removeAttribute('open'); alCerrar(); }
+  }
+  function alCerrar() {
+    raiz.classList.remove('bloqueado');
+    const destino = opener;
+    opener = null;
+    if (destino && document.contains(destino) && !destino.closest('[hidden]')) destino.focus({ preventScroll: true });
+  }
+  document.querySelectorAll('dialog').forEach(dlg => {
+    dlg.addEventListener('close', alCerrar);
+    dlg.addEventListener('click', e => {
+      if (e.target === dlg) cerrarDialogo(dlg);           // clic en el fondo
+      if (e.target.closest('[data-cerrar]')) cerrarDialogo(dlg);
+    });
+  });
+
+  const ficha = $('#ficha');
+  function abrirFicha(id, desde) {
+    const p = platillos.find(x => x.id === id);
+    if (!p) return;
+    $('#ficha-foto').innerHTML = fotoHTML(p, { grande: true, lazy: false });
+    $('#ficha-pais').textContent = p.paisNombre;
+    $('#ficha-titulo').textContent = p.nombre;
+    $('#ficha-desc').textContent = p.descripcion;
+    $('#ficha-nota').hidden = !p.imagen;
+    const fb = $('#ficha-fav');
+    fb.dataset.fav = p.id;
+    fb.setAttribute('aria-label', `Guardar ${p.nombre} en favoritos`);
+    fb.setAttribute('aria-pressed', String(favoritos.has(p.id)));
+    ficha.scrollTop = 0;
+    abrirDialogo(ficha, desde);
+  }
+
+  resultados.addEventListener('click', e => {
+    const fav = e.target.closest('[data-fav]');
+    if (fav) { alternarFav(fav.dataset.fav); return; }
+    const abrir = e.target.closest('[data-abrir]');
+    if (abrir) {
+      const tarjeta = abrir.closest('.tarjeta');
+      const boton = tarjeta.querySelector('.btn-detalles');
+      abrirFicha(abrir.dataset.abrir, boton);
+    }
+  });
+  $('#ficha-fav').addEventListener('click', e => alternarFav(e.currentTarget.dataset.fav));
+
+  const dlgFavs = $('#favoritos');
+  $('#abrir-favs').addEventListener('click', e => { refrescarFavs(); abrirDialogo(dlgFavs, e.currentTarget); });
+  $('#favs-lista').addEventListener('click', e => {
+    const b = e.target.closest('[data-quitar]');
+    if (!b) return;
+    const items = [...$('#favs-lista').querySelectorAll('.fav-item')];
+    const idx = items.findIndex(li => li.dataset.item === b.dataset.quitar);
+    alternarFav(b.dataset.quitar);
+    const restantes = $('#favs-lista').querySelectorAll('[data-quitar]');
+    const siguiente = restantes[Math.min(idx, restantes.length - 1)];
+    (siguiente || $('#volver-menu')).focus();
+  });
+  $('#volver-menu').addEventListener('click', () => {
+    opener = null;
+    cerrarDialogo(dlgFavs);
+    irA($('#menu'));
+    $('#buscar').focus({ preventScroll: true });
+  });
+
+  /* ---------- Información opcional (solo con datos confirmados) ---------- */
+  (function () {
+    const filas = [
+      ['Ubicación', CONTACTO.ubicacion],
+      ['Horario', CONTACTO.horario],
+      ['Teléfono', CONTACTO.telefono],
+      ['Instagram', CONTACTO.instagram]
+    ].filter(([, v]) => v && String(v).trim());
+    if (!filas.length) return;
+    const sec = $('#informacion');
+    sec.innerHTML = `<div class="contenedor"><h2 class="seccion-titulo" id="titulo-info">Información</h2>
+      <dl class="info-lista">${filas.map(([k, v]) => {
+        const valor = k === 'Instagram' && /^https:\/\//.test(v)
+          ? `<a class="enlace" href="${esc(v)}" target="_blank" rel="noopener">${esc(v.replace(/^https:\/\/(www\.)?instagram\.com\//, '@').replace(/\/$/, ''))}</a>`
+          : esc(v);
+        return `<div><dt>${k}</dt><dd>${valor}</dd></div>`;
+      }).join('')}</dl></div>`;
+    sec.hidden = false;
+    $('#nav-info').hidden = false;
+    $('#pie-info').hidden = false;
+  })();
+
+
+  /* ---------- Sellos de cada país al aparecer ---------- */
+  function sellarGrupo(g) { reanimar(g.querySelector('.grupo-cabeza .sello-pais'), 'sellado'); }
+  if ('IntersectionObserver' in window) {
+    const ioSellos = new IntersectionObserver(entradas => {
+      entradas.forEach(e => { if (e.isIntersecting) { sellarGrupo(e.target); ioSellos.unobserve(e.target); } });
+    }, { threshold: 0.6 });
+    grupos.forEach(g => ioSellos.observe(g));
+  }
+
+  /* ---------- Vuelo por la mesa de la portada ---------- */
+  (function vuelo() {
+    const mesa = $('#mesa'), avion = $('#avion'), destino = $('#proxima-pais');
+    if (!mesa || !avion) return;
+    const platos = [...mesa.querySelectorAll('.plato')];
+    let visible = true, activo = null, t0 = null;
+    if ('IntersectionObserver' in window) new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(mesa);
+    const DUR = 5600, PAUSA = 4200;
+    const ruta = () => { const d = mesa.querySelector('.ruta-d'); return mesa.querySelector(getComputedStyle(d).display !== 'none' ? '.ruta-d .trazo' : '.ruta-m .trazo'); };
+    function marcar(pl) {
+      if (pl === activo) return;
+      if (activo) activo.classList.remove('activo');
+      activo = pl;
+      if (pl) { pl.classList.add('activo'); destino.textContent = pl.dataset.pais; reanimar(destino, 'cambio'); }
+    }
+    function cuadro(ts) {
+      if (reducido.matches) { avion.style.opacity = 0; marcar(null); requestAnimationFrame(cuadro); return; }
+      if (t0 === null) t0 = ts;
+      const c = (ts - t0) % (DUR + PAUSA);
+      const path = ruta();
+      if (visible && path && c < DUR) {
+        const L = path.getTotalLength(), k = c / DUR;
+        const e = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+        const a = path.getPointAtLength(e * L), b = path.getPointAtLength(Math.min(L, e * L + 0.8));
+        const W = mesa.clientWidth / 100, H = mesa.clientHeight / 100;
+        const x = a.x * W, y = a.y * H;
+        const ang = Math.atan2((b.y - a.y) * H, (b.x - a.x) * W) * 180 / Math.PI;
+        avion.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%) rotate(${ang + 90}deg)`;
+        avion.style.opacity = Math.max(0, Math.min(1, k * 10, (1 - k) * 10));
+        const mr = mesa.getBoundingClientRect();
+        let cerca = null;
+        platos.forEach(pl => {
+          const r = pl.getBoundingClientRect();
+          const dx = r.left + r.width / 2 - mr.left - x, dy = r.top + r.height / 2 - mr.top - y;
+          if (Math.hypot(dx, dy) < r.width * 0.55) cerca = pl;
+        });
+        if (cerca) marcar(cerca);
+      } else {
+        avion.style.opacity = 0;
+        if (c >= DUR) marcar(null);
+      }
+      requestAnimationFrame(cuadro);
+    }
+    setTimeout(() => requestAnimationFrame(cuadro), 1500);
+  })();
+
+  /* ---------- Elegí por mí ---------- */
+  (function () {
+    const dlg = $('#sorpresa'), boleto = $('#boleto'), otra = $('#sorpresa-otra');
+    let ultimo = null, elegido = null, girando = false;
+    const imgTag = p => `<img src="${rutaImg(p.imagen + '-480.webp')}" width="480" height="360" alt="${esc(p.alt)}" data-fallback="${p.id}">`;
+    function pool() {
+      const vis = platillos.filter(p => { const t = tarjetas.get(p.id); return !t.hidden && !t.closest('[hidden]'); });
+      return vis.length ? { lista: vis, filtrado: vis.length < platillos.length } : { lista: platillos, filtrado: false };
+    }
+    function mostrar(p, final) {
+      $('#sorpresa-foto').innerHTML = p.imagen ? imgTag(p) : vaciaHTML(p);
+      $('#sorpresa-pais').textContent = p.paisNombre;
+      $('#sorpresa-nombre').textContent = p.nombre;
+      $('#sorpresa-desc').textContent = final ? p.descripcion : '';
+      $('#sorpresa-sello').textContent = final ? paisPorId[p.pais].codigo : '';
+    }
+    function girar() {
+      const { lista, filtrado } = pool();
+      $('#sorpresa-ambito').textContent = filtrado
+        ? `Elegido entre los ${plural(lista.length, 'platillo', 'platillos')} que estás viendo en el menú.`
+        : `Elegido entre los ${plural(lista.length, 'platillo', 'platillos')} del menú.`;
+      lista.forEach(p => { if (p.imagen) { const i = new Image(); i.src = rutaImg(p.imagen + '-480.webp'); } });
+      let opciones = lista.filter(p => p.id !== ultimo);
+      if (!opciones.length) opciones = lista;
+      elegido = opciones[Math.floor(Math.random() * opciones.length)];
+      ultimo = elegido.id;
+      const fin = () => {
+        girando = false; boleto.classList.remove('girando'); otra.disabled = false;
+        mostrar(elegido, true); reanimar($('#sorpresa-sello'), 'sellado');
+        const fb = $('#sorpresa-fav');
+        fb.dataset.fav = elegido.id; fb.hidden = false;
+        fb.setAttribute('aria-label', `Guardar ${elegido.nombre} en favoritos`);
+        fb.setAttribute('aria-pressed', String(favoritos.has(elegido.id)));
+        $('#sorpresa-ver').hidden = false;
+        $('#sorpresa-anuncio').textContent = `Tu destino: ${elegido.nombre}, de ${elegido.paisNombre}. ${elegido.descripcion}`;
+      };
+      $('#sorpresa-fav').hidden = true; $('#sorpresa-ver').hidden = true;
+      if (reducido.matches || lista.length < 2) { fin(); return; }
+      girando = true; otra.disabled = true; boleto.classList.add('girando');
+      $('#sorpresa-anuncio').textContent = 'Eligiendo un platillo…';
+      let paso = 0, i = Math.floor(Math.random() * lista.length);
+      const PASOS = 16;
+      (function tic() {
+        if (!dlg.open) { girando = false; boleto.classList.remove('girando'); otra.disabled = false; return; }
+        if (paso >= PASOS) { fin(); return; }
+        i = (i + 1) % lista.length;
+        if (lista[i] === elegido && paso < PASOS - 1) i = (i + 1) % lista.length;
+        mostrar(paso === PASOS - 1 ? elegido : lista[i], false);
+        paso++;
+        setTimeout(tic, 55 + Math.pow(paso / PASOS, 2.4) * 300);
+      })();
+    }
+    $('#sorprendeme').addEventListener('click', e => { abrirDialogo(dlg, e.currentTarget); girar(); });
+    otra.addEventListener('click', () => { if (!girando) girar(); });
+    $('#sorpresa-fav').addEventListener('click', e => alternarFav(e.currentTarget.dataset.fav));
+    $('#sorpresa-ver').addEventListener('click', () => {
+      if (!elegido) return;
+      const t = tarjetas.get(elegido.id);
+      opener = null;
+      cerrarDialogo(dlg);
+      t.scrollIntoView({ behavior: reducido.matches ? 'auto' : 'smooth', block: 'center' });
+      reanimar(t, 'resaltada');
+      t.querySelector('.btn-detalles').focus({ preventScroll: true });
+    });
+  })();
+
+  /* ---------- Inicio ---------- */
+  if (!almacenamientoOK) $('#favs-sesion').hidden = false;
+  aplicar();
+  refrescarFavs();
+  medir();
+})();
+</script>
+</body>
+</html>
